@@ -178,6 +178,31 @@ services:
       MYSQL_DATABASE: laravel
       MYSQL_USER: laravel
       MYSQL_PASSWORD: laravel
+======================================================================
+
+bootstrap/app.phpにapiを追加しないとルート一覧にapiが表示されない。
+
+root@4ecebfa36930:/var/www/html# php artisan route:list
+
+  GET|HEAD  / .................................................................................................................... routes/web.php:5
+  GET|HEAD  storage/{path} ................... storage.local › vendor/laravel/framework/src/Illuminate/Filesystem/FilesystemServiceProvider.php:111
+  PUT       storage/{path} ............ storage.local.upload › vendor/laravel/framework/src/Illuminate/Filesystem/FilesystemServiceProvider.php:119
+  GET|HEAD  up ........................................ vendor/laravel/framework/src/Illuminate/Foundation/Configuration/ApplicationBuilder.php:224
+
+                                                                                                                                 Showing [4] routes
+
+root@4ecebfa36930:/var/www/html# php artisan route:list
+
+  GET|HEAD  / .................................................................................................................... routes/web.php:5
+  GET|HEAD  api/users ............................................................................................................ routes/api.php:6
+  GET|HEAD  storage/{path} ................... storage.local › vendor/laravel/framework/src/Illuminate/Filesystem/FilesystemServiceProvider.php:111
+  PUT       storage/{path} ............ storage.local.upload › vendor/laravel/framework/src/Illuminate/Filesystem/FilesystemServiceProvider.php:119
+  GET|HEAD  up ........................................ vendor/laravel/framework/src/Illuminate/Foundation/Configuration/ApplicationBuilder.php:224
+
+
+
+
+
 ##### End of File #####
 
 ===============================================
