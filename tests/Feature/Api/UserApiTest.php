@@ -12,7 +12,7 @@ class UserApiTest extends TestCase
     /**
      * A basic feature test example.
      */
-    use RefreshDataase;
+    use RefreshDatabase;
 
     public function test_example(): void
     {
